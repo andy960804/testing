@@ -2,10 +2,6 @@ NAME	= libft.a
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
-#---------------#
-#    SOURCES    #
-#---------------#
-
 SRC_CHAR = ft_isalnum.c \
 		   ft_isalpha.c \
 		   ft_isascii.c \
@@ -54,38 +50,6 @@ SRCS = $(SRC_CHAR) \
 
 OBJS = $(SRCS:.c=.o)
 
-#-------------#
-#    BONUS    #
-#-------------#
-
-BONUS_SRC_LIST = ft_lstadd_back.c \
-				 ft_lstadd_front.c \
-				 ft_lstclear.c \
-				 ft_lstdelone.c \
-				 ft_lstiter.c \
-				 ft_lstlast.c \
-				 ft_lstmap.c \
-				 ft_lstnew.c \
-				 ft_lstsize.c
-
-BONUS_SRCS = $(BONUS_SRC_LIST)
-
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-
-#-------------#
-#    EXTRA    #
-#-------------#
-
-EXTRA_SRC_LIST = ft_isinstr.c
-
-EXTRA_SRCS = $(EXTRA_SRC_LIST)
-
-EXTRA_OBJS = $(EXTRA_SRCS:.c=.o)
-
-#-------------#
-#    RULES    #
-#-------------#
-
 all: $(NAME)
 
 $(OBJS): $(SRCS)
@@ -102,26 +66,8 @@ $(NAME):
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-# $(NAME): $(OBJS)
-# 	ar rc $(NAME) $(OBJS)
-# 	ranlib $(NAME)
-
-bonus:
-	$(CC) $(CFLAGS) -I . -c $(SRCS) $(BONUS_SRCS)
-	ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
-	ranlib $(NAME)
-
-# bonus: $(OBJS) $(BONUS_OBJS)
-# 	ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
-# 	ranlib $(NAME)
-
-extra: $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS)
-	ar rc $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS)
-	ranlib $(NAME)
-
-
 clean:
-	-rm $(OBJS) $(BONUS_OBJS)
+	-rm $(OBJS)
 
 fclean: clean
 	-rm $(NAME)
