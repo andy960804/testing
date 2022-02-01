@@ -2,9 +2,6 @@ NAME	= libft.a
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
-#---------------#
-#    SOURCES    #
-#---------------#
 
 SRC_CHAR = ft_isalnum.c \
 		   ft_isalpha.c \
@@ -53,10 +50,6 @@ SRCS = $(SRC_CHAR) \
 
 OBJS = $(SRCS:.c=.o)
 
-#-------------#
-#    RULES    #
-#-------------#
-
 all: $(NAME)
 
 $(OBJS): $(SRCS)
@@ -66,10 +59,6 @@ $(NAME):
 	$(CC) $(CFLAGS) -I . -c $(SRCS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-
-# $(NAME): $(OBJS)
-# 	ar rc $(NAME) $(OBJS)
-# 	ranlib $(NAME)
 
 clean:
 	-rm $(OBJS)
