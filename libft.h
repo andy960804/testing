@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 03:50:09 by lxu               #+#    #+#             */
-/*   Updated: 2022/02/02 01:13:07 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 01:20:35 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ int		ft_isprint(int c);
 int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
-/*
- * CHAR EXTRA
- */
-
-int		ft_isinstr(int c, char *str);
 
 /*
  * CONVERSION

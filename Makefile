@@ -72,16 +72,6 @@ BONUS_SRCS = $(BONUS_SRC_LIST)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 #-------------#
-#    EXTRA    #
-#-------------#
-
-EXTRA_SRC_LIST = ft_isinstr.c
-
-EXTRA_SRCS = $(EXTRA_SRC_LIST)
-
-EXTRA_OBJS = $(EXTRA_SRCS:.c=.o)
-
-#-------------#
 #    RULES    #
 #-------------#
 
