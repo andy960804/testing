@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 03:50:09 by lxu               #+#    #+#             */
-/*   Updated: 2022/02/02 00:49:49 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 00:50:38 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/*
+ * CHAR
+ */
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -25,10 +28,22 @@ int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
+/*
+ * CHAR EXTRA
+ */
+
 int		ft_isinstr(int c, char *str);
+
+/*
+ * CONVERSION
+ */
 
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+
+/*
+ * LIST
+ */
 
 typedef struct s_list
 {
@@ -46,6 +61,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 
+/*
+ * MEMORY
+ */
+
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -54,10 +73,18 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 
+/*
+ * PRINT
+ */
+
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
+
+/*
+ * STR
+ */
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
