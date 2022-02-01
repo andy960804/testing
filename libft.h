@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 03:50:09 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 01:27:15 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 01:30:00 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
