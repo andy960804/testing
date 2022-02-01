@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lxu <lxu@student.42adel.org.au>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 16:54:14 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 01:07:50 by boskim           ###   ########seoul.kr  */
+/*   Created: 2022/01/10 16:53:33 by lxu               #+#    #+#             */
+/*   Updated: 2022/01/10 16:53:34 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-
-void	ft_putendl_fd(char *s, int fd)
+int	ft_isspace(int c)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	if (c == '\t' || c == '\n' || c == '\v' || \
+			c == '\f' || c == '\r' || c == ' ')
+	{
+		return (1);
+	}
+	return (0);
 }
