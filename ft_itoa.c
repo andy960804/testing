@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:53:36 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:37:06 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 00:00:16 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "limits.h"
 
-static int	priv_calc_number_of_digits(int n)
+static int	calc_number(int n)
 {
 	long int	long_n;
 	int			len;
@@ -40,29 +40,29 @@ static int	priv_calc_number_of_digits(int n)
 
 char	*ft_itoa(int n)
 {
+	char		*num_str;
 	int			len;
-	char		*num_string;
-	long int	long_n;
 	int			i;
-
-	len = priv_calc_number_of_digits(n);
-	num_string = malloc(sizeof (*num_string) * (len + 1));
-	if (!num_string)
+	long int	long_n;
+	
+	len = calc_number(n);
+	num_str = malloc(sizeof (*num_str) * (len + 1));
+	if (!num_str)
 		return (NULL);
 	if (n == 0)
-		num_string[0] = '0';
+		num_str[0] = '0';
 	long_n = n;
 	if (long_n < 0)
-		num_string[0] = '-';
+		num_str[0] = '-';
 	if (long_n < 0)
 		long_n = long_n * -1;
 	i = 0;
 	while (long_n)
 	{
-		num_string[len - i - 1] = '0' + (long_n % 10);
+		num_str[len - i - 1] = '0' + (long_n % 10);
 		long_n = long_n / 10;
 		i++;
 	}
-	num_string[len] = '\0';
-	return (num_string);
+	num_str[len] = '\0';
+	return (num_str);
 }
