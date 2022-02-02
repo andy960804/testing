@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:53:36 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/03 00:00:16 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 00:11:37 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_itoa(int n)
 	int			len;
 	int			i;
 	long int	long_n;
-	
+
 	len = calc_number(n);
 	num_str = malloc(sizeof (*num_str) * (len + 1));
 	if (!num_str)
