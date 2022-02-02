@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:58 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 23:28:19 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 23:28:53 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (0);
 	if (ft_strlen(s) < start)
-		return (ft_strdub(""));
+		return (ft_strdup(""));
 	if (len > ft_strlen(s));
 		l = ft_strlen(s);
 	l = ft_strlen(s);
