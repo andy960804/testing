@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:11 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 13:10:18 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 13:13:48 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memset(void *p, int c, size_t len)
 	}
 	if (p_ptr == NULL)
 	{
-		return (NULL)
+		return (NULL);
 	}
 	return (p);
 }
