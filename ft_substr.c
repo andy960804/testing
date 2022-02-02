@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:58 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:39:09 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 22:43:40 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	chars_left;
-	char	*result;
+	char	*res;
 	size_t	i;
 
 	if (start > ft_strlen(s))
-		chars_left = 0;
+		return (NULL);
 	else
 		chars_left = ft_strlen(s + start);
 	if (chars_left < len)
 		len = chars_left;
-	result = malloc(sizeof (*result) * (len + 1));
-	if (!result)
+	res = malloc(sizeof (*res) * (len + 1));
+	if (!res)
 	{
 		return (0);
 	}
 	i = 0;
 	while (i < len)
 	{
-		result[i] = s[start + i];
+		res[i] = s[start + i];
 		i++;
 	}
-	result[i] = '\0';
-	return (result);
+	res[i] = '\0';
+	return (res);
 }
