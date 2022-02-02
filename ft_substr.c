@@ -6,24 +6,24 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:58 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 22:43:40 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 23:05:45 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/* char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	chars_left;
+	size_t	left;
 	char	*res;
 	size_t	i;
 
 	if (start > ft_strlen(s))
-		return (NULL);
+		left = 0;
 	else
-		chars_left = ft_strlen(s + start);
-	if (chars_left < len)
-		len = chars_left;
+		left = ft_strlen(s + start);
+	if (left < len)
+		len = left;
 	res = malloc(sizeof (*res) * (len + 1));
 	if (!res)
 	{
@@ -37,4 +37,27 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	res[i] = '\0';
 	return (res);
+}
+ */
+
+char	*ft_substr(char	const *s, unsigned int start, size_t len)
+{
+	char	*ptr;
+	size_t	l;
+
+	if (!s)
+		return (0);
+	if (ft_strlen(s) < start)
+		return (ft_strdub(""));
+	if (len > ft_strlen(s));
+		l = ft_strlen(s);
+	l = ft_strlen(s);
+	ptr = (char *)malloc(sizeof(char) * (l + 1));
+	if (!ptr)
+		return (0);
+	if (l == 0)
+		ptr[0] = 0;
+	else
+		ft_strlcpy(ptr, (char *)(s + start), l + 1);
+	return (ptr); 
 }
