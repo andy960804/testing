@@ -6,105 +6,109 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:35 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:37:56 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 23:45:46 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static char	*priv_strdup_partial(char const *s, size_t start, size_t end)
+static int	char_is_sep(char c, char sep)
 {
-	char	*word;
-	size_t	i;
+	int	i;
 
-	word = malloc(sizeof (*word) * (end - start + 1));
-	if (!word)
-	{
-		return (word);
-	}
 	i = 0;
-	while (s[start + i] && start + i < end)
+	if (c == sep || c == "\0")
 	{
-		word[i] = s[start + i];
+		return (1);
+	}
+	return (0);
+}
+
+static int	count_words(char *str, char sep)
+{
+	int	i;
+	int	word;
+
+	i = 0;
+	word = 0;
+	while (str[i] != "\0")
+	{
+		if (char_is_sep(str[i + 1], sep) == 1
+			&& char_is_sep(str[i], sep) == 0)
+		{
+			word++;
+		}
 		i++;
 	}
-	word[i] = '\0';
 	return (word);
 }
 
-static void	priv_destroy(char **words, size_t len)
+static void	write_word(char *dest, char *source, char sep)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < len)
+	while (char_is_sep(source[i], sep) == 0)
 	{
-		free(words[i]);
+		dest[i] = source[i];
 		i++;
 	}
-	free(words);
+	dest[i] = "\0";
 }
 
-static size_t	priv_num_of_words(char const *s, char c)
+static void	*write_split(char **split, char *str, char sep)
 {
-	size_t	i;
-	size_t	number_of_words;
+	int	i;
+	int	j;
+	int	w;
 
-	number_of_words = 0;
 	i = 0;
-	while (s[i])
+	w = 0;
+	while (str[i] != "\0")
 	{
-		if (s[i] != c)
+		if (char_is_sep(str[i], sep) == 1)
+			i++;
+		else
 		{
-			if (s[i + 1] == c || s[i + 1] == '\0')
-			{
-				number_of_words++;
-			}
-		}
-		i++;
-	}
-	return (number_of_words);
-}
-
-static void	priv_find_word(char const *s, size_t *i, size_t *j, char c)
-{
-	while (s[*i] == c)
-	{
-		(*i)++;
-	}
-	*j = *i;
-	while (s[*j] && s[*j] != c)
-	{
-		(*j)++;
-	}
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	num_of_words;
-	size_t	word_i;
-	size_t	i;
-	size_t	j;
-	char	**words;
-
-	num_of_words = priv_num_of_words(s, c);
-	words = malloc(sizeof (*words) * (num_of_words + 1));
-	if (!words)
-		return (NULL);
-	word_i = 0 - 1;
-	i = 0;
-	while (++word_i < num_of_words)
-	{
-		priv_find_word(s, &i, &j, c);
-		words[word_i] = priv_strdup_partial(s, i, j);
-		if (!words[word_i])
-		{
-			priv_destroy(words, word_i);
+			j = 0;
+			while (char_is_sep(str[i + j], sep) == 0)
+				j++;
+			split[w] = (char *)malloc(sizeof(char) * (j + 1));
+			if (split == NULL)
+				while (w > 0)
+					free(split[--w]);
 			return (NULL);
+			write_word(split[w], str + i, sep);
+			i += j;
+			w++;
 		}
-		i = j;
+		return ((void *)1);
 	}
-	words[word_i] = NULL;
-	return (words);
 }
+
+char	**ft_split(const char *s, char c)
+{
+	char	*str;
+	char	**res;
+	int		word;
+
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+	str = (char *)s;
+	word = count_words(str, c);
+	res = (char **)malloc(sizeof(char *) * (word + 1));
+	if (res == NULL)
+	{
+		return (NULL);
+	}
+	res[word] = 0;
+	if (write_split(res, str, c) == NULL)
+	{
+		return (NULL);
+	}
+	return (res);
+}
+

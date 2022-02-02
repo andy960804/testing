@@ -6,13 +6,13 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:56 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:39:05 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 23:43:10 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	priv_ft_inset(char c, char const *set)
+static int	is_that(char c, char const *set)
 {
 	while (*set)
 	{
@@ -27,26 +27,26 @@ static int	priv_ft_inset(char c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	char	*res;
 	size_t	start;
 	size_t	end;
-	char	*result;
 	size_t	i;
 
 	start = 0;
 	end = ft_strlen(s1);
-	while (s1[start] && priv_ft_inset(s1[start], set))
+	while (s1[start] && is_that(s1[start], set))
 		start++;
-	while (end > start && priv_ft_inset(s1[end - 1], set))
+	while (end > start && is_that(s1[end - 1], set))
 		end--;
-	result = malloc(sizeof (*result) * (end - start + 1));
-	if (!result)
-		return (result);
+	res = malloc(sizeof (*res) * (end - start + 1));
+	if (!res)
+		return (res);
 	i = 0;
 	while (i + start < end)
 	{
-		result[i] = s1[start + i];
+		res[i] = s1[start + i];
 		i++;
 	}
-	result[i] = '\0';
-	return (result);
+	res[i] = '\0';
+	return (res);
 }
