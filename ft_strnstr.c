@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:48:09 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 19:20:14 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 19:22:28 by andy9608         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[i] && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] && needle[j] 
+		while (haystack[i + j] && needle[j]
 			&& haystack[i + j] == needle[j] && i + j < len)
 		{
 			j++;
