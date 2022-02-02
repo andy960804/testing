@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:55 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 15:47:16 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 15:49:36 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		ptr++;
 	}
-	/* if (*ptr == c)
+	if (*ptr == c)
 	{
 		res = ptr;
-	} */
+	}
 	return (res);
 }
