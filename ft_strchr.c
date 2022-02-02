@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:37 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:38:17 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 15:42:57 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*result;
+	char	*res;
 
-	result = (char *)s;
+	res = (char *)s;
 	c = (char)c;
-	while (*result && *result != c)
+	while (*res && *res != c)
 	{
-		result++;
+		res++;
 	}
-	if (*result == c)
+	if (*res == c)
 	{
-		return (result);
+		return (res);
 	}
 	return (NULL);
 }

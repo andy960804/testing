@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:44 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:38:37 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/02 15:36:49 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
+	i = 0;
 	if (dstsize == 0)
 	{
 		return (ft_strlen(src));
 	}
-	i = 0;
 	while (src[i] && i < dstsize - 1)
 	{
 		dst[i] = src[i];
