@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:35 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 23:52:52 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 11:50:11 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*strdup_partial(char const *s, size_t start, size_t end)
 	return (word);
 }
 
-static void	sep(char **words, size_t len)
+static void	get_free(char **words, size_t len)
 {
 	size_t	i;
 
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	words = malloc(sizeof (*words) * (num_words + 1));
 	if (!words)
 		return (NULL);
-	word_index = 0 - 1;
+	word_index = 0;
 	i = 0;
 	while (++word_index < num_words)
 	{
@@ -100,7 +100,7 @@ char	**ft_split(char const *s, char c)
 		words[word_index] = strdup_partial(s, i, j);
 		if (!words[word_index])
 		{
-			sep(words, word_index);
+			get_free(words, word_index);
 			return (NULL);
 		}
 		i = j;
