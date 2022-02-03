@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:35 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/03 11:50:11 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 11:52:01 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	words = malloc(sizeof (*words) * (num_words + 1));
 	if (!words)
 		return (NULL);
-	word_index = 0;
+	word_index = -1;
 	i = 0;
 	while (++word_index < num_words)
 	{
