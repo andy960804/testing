@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:53:16 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:36:02 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 09:49:33 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
 	char	*ptr;
-
+	size_t	i;
+	
 	ptr = s;
 	i = 0;
 	while (i < n)
 	{
-		ptr[i] = 0;
-		i++;
+		ptr[i++] = 0;
 	}
-	return ;
 }
