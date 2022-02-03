@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:46 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:38:42 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 09:54:31 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	size;
+	size_t	n;
 
-	size = 0;
-	while (s[size])
+	n = 0;
+	while (s[n])
 	{
-		size++;
+		n++;
 	}
-	return (size);
+	return (n);
 }

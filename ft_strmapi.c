@@ -6,7 +6,7 @@
 /*   By: boskim <boskim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:54:48 by boskim            #+#    #+#             */
-/*   Updated: 2022/02/02 09:38:45 by boskim           ###   ########seoul.kr  */
+/*   Updated: 2022/02/03 09:55:03 by boskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*res;
 	size_t	len;
-	char	*result;
 	size_t	i;
 
 	len = ft_strlen(s);
-	result = malloc(sizeof (*result) * (len + 1));
-	if (!result)
+	res = malloc(sizeof (*res) * (len + 1));
+	if (!res)
 	{
-		return (result);
+		return (res);
 	}
 	i = 0;
 	while (i < len)
 	{
-		result[i] = f(i, s[i]);
+		res[i] = f(i, s[i]);
 		i++;
 	}
-	result[i] = '\0';
-	return (result);
+	res[i] = '\0';
+	return (res);
 }
